@@ -1,0 +1,23 @@
+name: PetTeleport
+version: '${project.version}'
+main: me.maurxce.petteleport.Main
+api-version: 1.19
+prefix: PetTP
+authors: [ maurxce ]
+description: A plugin that teleports pets with you!
+website: https://maurxce.dev/
+
+commands:
+  reload:
+    description: Reloads all the plugins files
+    usage: /<command>
+    permission: pettp.reload
+
+permissions:
+  pettp.reload:
+    description: Permission to use the reload command
+    default: op
+
+  pettp.enable:
+    description: Permission to teleport pets with a player
+    default: true
