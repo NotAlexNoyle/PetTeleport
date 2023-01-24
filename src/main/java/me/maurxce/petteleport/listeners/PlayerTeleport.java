@@ -25,12 +25,12 @@ public class PlayerTeleport implements Listener {
         int keepChunkLoadedSeconds = config.getInt("keep-chunk-loaded");
         if (keepChunkLoadedSeconds <= 0) return;
 
-        teleportedFrom.setForceLoaded(true);
+        teleportedFrom.addPluginChunkTicket(main);
         main.getServer().getScheduler().runTaskLater(main, new Runnable() {
             @Override
             public void run() {
-                if (teleportedFrom.isLoaded()) teleportedFrom.setForceLoaded(false);
+                teleportedFrom.removePluginChunkTicket(main);
             }
-        }, 20L * keepChunkLoadedSeconds);
+        },20L * keepChunkLoadedSeconds);
     }
 }
